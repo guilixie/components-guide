@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>滚动的数字</title>
+    <link rel="stylesheet" href="../../src/components/runningNum/JRunningNum.css">
+    <style>
+        @font-face {
+            font-family: 'liquidcr';
+            src: url('../../src/fonts/Liquidcr.ttf') format('truetype');
+        }
+
+        @font-face {
+            font-family: 'LiquidCrystal_Normal';
+            src: url('../../src/fonts/LiquidCrystal_Normal.ttf') format('truetype');
+        }
+
+        @font-face {
+            font-family: 'LCD';
+            src: url('../../src/fonts/LCD.TTF') format('truetype');
+        }
+
+
+        /* 插件 */
+
+        .num-container {
+            margin: 0 auto;
+            margin-top: 50px;
+        }
+
+        /* 自己设置 */
+
+        #J_firstVm {
+            width: 350px;
+            height: 60px;
+        }
+
+        #J_secondVm {
+            width: 470px;
+            height: 60px;
+        }
+
+        #J_thirdVm {
+            width: 590px;
+            height: 60px;
+        }
+
+        #J_fourthVm {
+            width: 1160px;
+            height: 60px;
+        }
+
+        #J_fifthVm {
+            width: 830px;
+            height: 60px;
+        }
+
+        .my-num-cell {
+            color: #fdfdfd;
+            border: 1px solid #234f9f;
+            border-radius: 4px;
+            background-image: -webkit-linear-gradient(rgba(38, 87, 175, .5), rgba(38, 87, 175, 1), rgba(38, 87, 175, .5));
+            background-image: -moz-linear-gradient(rgba(38, 87, 175, .5), rgba(38, 87, 175, 1), rgba(38, 87, 175, .5));
+            background-image: -o-linear-gradient(rgba(38, 87, 175, .5), rgba(38, 87, 175, 1), rgba(38, 87, 175, .5));
+            background-image: linear-gradient(rgba(38, 87, 175, .5), rgba(38, 87, 175, 1), rgba(38, 87, 175, .5));
+            font-size: 30px;
+            font-weight: normal;
+            font-family: LCD, Helvetica, Arial, sans-serif;
+        }
+
+        #J_fourthVm .my-num-cell,
+        #J_fourthVm .my-num-cell>li {
+            width: 80px;
+            height: 80px;
+            line-height: 80px;
+            font-size: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="num-container" id="J_firstVm"></div>
+    <div class="num-container" id="J_secondVm"></div>
+    <div class="num-container" id="J_thirdVm"></div>
+    <div class="num-container" id="J_fourthVm"></div>
+    <div class="num-container" id="J_fifthVm"></div>
+
+    <script src="../../src/lib/js/jquery-3.3.1.min.js"></script>
+    <script src="../../src/components/runningNum/JRunningNum.js"></script>
+    <script src="../../src/lib/js/mock.min.js"></script>
+    <script src="../../src/data/mockData.js"></script>
+    <script>
+        window.onload = function () {
+            var vm_first = JRunningNum({
+                    el: '#J_firstVm',
+                }),
+                vm_second = JRunningNum({
+                    el: '#J_secondVm',
+                    cellClass: 'my-num-cell',
+                    size: 8
+                }),
+                vm_third = JRunningNum({
+                    el: '#J_thirdVm',
+                    cellClass: 'my-num-cell',
+                    size: 10,
+                    toFixed: 2
+                }),
+                vm_fourth = JRunningNum({
+                    el: '#J_fourthVm',
+                    cellClass: 'my-num-cell',
+                    size: 10,
+                    splitChar: ',',
+                    splitBit: 3,
+                }),
+                vm_fifth = JRunningNum({
+                    el: '#J_fifthVm',
+                    cellClass: 'my-num-cell',
+                    size: 11,
+                    splitChar: ',',
+                    splitBit: 3,
+                    toFixed: 2
+                });
+
+            var time = 1000 * 2.5;
+
+            var firstTimer = setInterval(function () {
+                    $.ajax({
+                        url: '/testJRunningNum/getNum',
+                        method: 'get',
+                        async: 'true',
+                        dataType: 'json',
+                        data: {
+                            figure: vm_first.size
+                        },
+                        success: function (data) {
+                            vm_first.setData(data.num)
+                        },
+                        fail: function (data) {
+                            // clearInterval(firstTimer)
+                        }
+                    });
+                }, time),
+                secondTimer = setInterval(function () {
+                    $.ajax({
+                        url: '/testJRunningNum/getNum',
+                        method: 'get',
+                        async: 'true',
+                        dataType: 'json',
+                        data: {
+                            figure: vm_second.size
+                        },
+                        success: function (data) {
+                            vm_second.setData(data.num)
+                        },
+                        fail: function (data) {
+                            // clearInterval(secondTimer)
+                        }
+                    });
+                }, time),
+                thirdTimer = setInterval(function () {
+                    $.ajax({
+                        url: '/testJRunningNum/getNum',
+                        method: 'get',
+                        async: 'true',
+                        dataType: 'json',
+                        data: {
+                            figure: vm_third.size - 3
+                        },
+                        success: function (data) {
+                            vm_third.setData(data.num)
+                        },
+                        fail: function (data) {
+                            // clearInterval(thirdTimer)
+                        }
+                    });
+                }, time),
+                fourthTimer = setInterval(function () {
+                    $.ajax({
+                        url: '/testJRunningNum/getNum',
+                        method: 'get',
+                        async: 'true',
+                        dataType: 'json',
+                        data: {
+                            figure: vm_fourth.size
+                        },
+                        success: function (data) {
+                            vm_fourth.setData(data.num)
+                        },
+                        fail: function (data) {}
+                    });
+                }, time),
+                fifthTimer = setInterval(function () {
+                    $.ajax({
+                        url: '/testJRunningNum/getNum',
+                        method: 'get',
+                        async: 'true',
+                        dataType: 'json',
+                        data: {
+                            figure: vm_fifth.size - 3
+                        },
+                        success: function (data) {
+                            vm_fifth.setData(data.num)
+                        },
+                        fail: function (data) {}
+                    });
+                }, time);
+        }
+    </script>
+</body>
+
+</html>

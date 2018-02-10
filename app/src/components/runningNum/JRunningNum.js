@@ -38,7 +38,7 @@
   };
 
   function JRunningNum(config) {
-    if (!(this instanceof ScrollNum)) return new JRunningNum(config);
+    if (!(this instanceof JRunningNum)) return new JRunningNum(config);
     return this.init(config);
   }
 
