@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>智能菜单</title>
+    <link rel="stylesheet" href="../../src/components/intelligentMenu/JMenu.css" />
+    <style>
+        body,
+        html {
+            margin: 0;
+            height: 0;
+            width: 100%;
+            height: 100%;
+            background: #f0f3ef;
+            position: relative;
+        }
+
+        #J_testMenu {
+            width: 60%;
+            position: absolute;
+            top: 10%;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+    </style>
+</head>
+
+<body>
+    <div id="J_testMenu">
+        <div id="JMenu_{uuid}" class="menu-container">
+            <ul>
+                <li data-id="a{1}" class="menu-active">
+                    <a href="#">一级</a>
+                    <a href="#">菜单1</a>
+                </li>
+                <li data-id="a{2}">
+                    <a href="#">一级</a>
+                    <a href="#">菜单2</a>
+                </li>
+                <li data-id="a{3}">
+                    <a href="#">一级</a>
+                    <a href="#">菜单3</a>
+                </li>
+            </ul>
+            <div id="JMenu_sub_{uuid}" class="sub-menu-wrap none">
+                <div class="sub-menu none" id="a{1}">
+                    <dl>
+                        <dt>
+                            <a href="#">
+                                <span>二级菜单1</span>
+                                <i class="iconfont icon-qiehuanqiyou"></i>
+                            </a>
+                        </dt>
+                        <dd>
+                            <a href="#"> 三级菜单 </a>
+                            <a href="#"> 三级菜单 </a>
+                            <a href="#"> 三级菜单 </a>
+                            <a href="#"> 三级菜单 </a>
+                            <a href="#"> 三级菜单 </a>
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt>
+                            <a href="#">
+                                <span>二级菜单1</span>
+                                <i class="iconfont icon-qiehuanqiyou"></i>
+                            </a>
+                        </dt>
+                        <dd>
+                            <a href="#"> 三级菜单 </a>
+                            <a href="#"> 三级菜单 </a>
+                            <a href="#"> 三级菜单 </a>
+                            <a href="#"> 三级菜单 </a>
+                            <a href="#"> 三级菜单 </a>
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt>
+                            <a href="#">
+                                <span>二级菜单1</span>
+                                <i class="iconfont icon-qiehuanqiyou"></i>
+                            </a>
+                        </dt>
+                        <dd>
+                            <a href="#"> 三级菜单 </a>
+                            <a href="#"> 三级菜单 </a>
+                            <a href="#"> 三级菜单 </a>
+                            <a href="#"> 三级菜单 </a>
+                            <a href="#"> 三级菜单 </a>
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt>
+                            <a href="#">
+                                <span>二级菜单2</span>
+                                <i class="iconfont icon-qiehuanqiyou"></i>
+                            </a>
+                        </dt>
+                        <dd>
+                            <a href="#"> 三级菜单 </a>
+                            <a href="#"> 三级菜单 </a>
+                            <a href="#"> 三级菜单 </a>
+                            <a href="#"> 三级菜单 </a>
+                            <a href="#"> 三级菜单 </a>
+                        </dd>
+                    </dl>
+                </div>
+                <div class="sub-menu none" id="a{2}">
+                    <dl>
+                        <dt>
+                            <a href="#">
+                                <span>二级菜单2-1</span>
+                                <i class="iconfont icon-qiehuanqiyou"></i>
+                            </a>
+                        </dt>
+                        <dd>
+                            <a href="#"> 三级菜单 </a>
+                            <a href="#"> 三级菜单 </a>
+                            <a href="#"> 三级菜单 </a>
+                            <a href="#"> 三级菜单 </a>
+                            <a href="#"> 三级菜单 </a>
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt>
+                            <a href="#">
+                                <span>二级菜单2-2</span>
+                                <i class="iconfont icon-qiehuanqiyou"></i>
+                            </a>
+                        </dt>
+                        <dd>
+                            <a href="#"> 三级菜单 </a>
+                            <a href="#"> 三级菜单 </a>
+                            <a href="#"> 三级菜单 </a>
+                            <a href="#"> 三级菜单 </a>
+                            <a href="#"> 三级菜单 </a>
+                        </dd>
+                    </dl>
+                </div>
+                <div class="sub-menu none" id="a{3}">
+                    <dl>
+                        <dt>
+                            <a href="#">
+                                <span>二级菜单3-1</span>
+                                <i class="iconfont icon-qiehuanqiyou"></i>
+                            </a>
+                        </dt>
+                        <dd>
+                            <a href="#"> 三级菜单 </a>
+                            <a href="#"> 三级菜单 </a>
+                            <a href="#"> 三级菜单 </a>
+                            <a href="#"> 三级菜单 </a>
+                            <a href="#"> 三级菜单 </a>
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt>
+                            <a href="#">
+                                <span>二级菜单3-2</span>
+                                <i class="iconfont icon-qiehuanqiyou"></i>
+                            </a>
+                        </dt>
+                        <dd>
+                            <a href="#"> 三级菜单 </a>
+                            <a href="#"> 三级菜单 </a>
+                            <a href="#"> 三级菜单 </a>
+                            <a href="#"> 三级菜单 </a>
+                            <a href="#"> 三级菜单 </a>
+                        </dd>
+                    </dl>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
