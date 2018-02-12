@@ -29,152 +29,319 @@
 </head>
 
 <body>
-    <div id="J_testMenu">
-       <!--  <div id="JMenu_{uuid}" class="menu-container">
-            <ul>
-                <li data-id="a{1}" class="menu-active">
-                    <a href="#">一级</a>
-                    <a href="#">菜单1</a>
-                </li>
-                <li data-id="a{2}">
-                    <a href="#">一级</a>
-                    <a href="#">菜单2</a>
-                </li>
-                <li data-id="a{3}">
-                    <a href="#">一级</a>
-                    <a href="#">菜单3</a>
-                </li>
-            </ul>
-            <div id="JMenu_sub_{uuid}" class="sub-menu-wrap none">
-                <div class="sub-menu none" id="a{1}">
-                    <dl>
-                        <dt>
-                            <a href="#">
-                                <span>二级菜单1</span>
-                                <i class="iconfont icon-qiehuanqiyou"></i>
-                            </a>
-                        </dt>
-                        <dd>
-                            <a href="#"> 三级菜单 </a>
-                            <a href="#"> 三级菜单 </a>
-                            <a href="#"> 三级菜单 </a>
-                            <a href="#"> 三级菜单 </a>
-                            <a href="#"> 三级菜单 </a>
-                        </dd>
-                    </dl>
-                    <dl>
-                        <dt>
-                            <a href="#">
-                                <span>二级菜单1</span>
-                                <i class="iconfont icon-qiehuanqiyou"></i>
-                            </a>
-                        </dt>
-                        <dd>
-                            <a href="#"> 三级菜单 </a>
-                            <a href="#"> 三级菜单 </a>
-                            <a href="#"> 三级菜单 </a>
-                            <a href="#"> 三级菜单 </a>
-                            <a href="#"> 三级菜单 </a>
-                        </dd>
-                    </dl>
-                    <dl>
-                        <dt>
-                            <a href="#">
-                                <span>二级菜单1</span>
-                                <i class="iconfont icon-qiehuanqiyou"></i>
-                            </a>
-                        </dt>
-                        <dd>
-                            <a href="#"> 三级菜单 </a>
-                            <a href="#"> 三级菜单 </a>
-                            <a href="#"> 三级菜单 </a>
-                            <a href="#"> 三级菜单 </a>
-                            <a href="#"> 三级菜单 </a>
-                        </dd>
-                    </dl>
-                    <dl>
-                        <dt>
-                            <a href="#">
-                                <span>二级菜单2</span>
-                                <i class="iconfont icon-qiehuanqiyou"></i>
-                            </a>
-                        </dt>
-                        <dd>
-                            <a href="#"> 三级菜单 </a>
-                            <a href="#"> 三级菜单 </a>
-                            <a href="#"> 三级菜单 </a>
-                            <a href="#"> 三级菜单 </a>
-                            <a href="#"> 三级菜单 </a>
-                        </dd>
-                    </dl>
-                </div>
-                <div class="sub-menu none" id="a{2}">
-                    <dl>
-                        <dt>
-                            <a href="#">
-                                <span>二级菜单2-1</span>
-                                <i class="iconfont icon-qiehuanqiyou"></i>
-                            </a>
-                        </dt>
-                        <dd>
-                            <a href="#"> 三级菜单 </a>
-                            <a href="#"> 三级菜单 </a>
-                            <a href="#"> 三级菜单 </a>
-                            <a href="#"> 三级菜单 </a>
-                            <a href="#"> 三级菜单 </a>
-                        </dd>
-                    </dl>
-                    <dl>
-                        <dt>
-                            <a href="#">
-                                <span>二级菜单2-2</span>
-                                <i class="iconfont icon-qiehuanqiyou"></i>
-                            </a>
-                        </dt>
-                        <dd>
-                            <a href="#"> 三级菜单 </a>
-                            <a href="#"> 三级菜单 </a>
-                            <a href="#"> 三级菜单 </a>
-                            <a href="#"> 三级菜单 </a>
-                            <a href="#"> 三级菜单 </a>
-                        </dd>
-                    </dl>
-                </div>
-                <div class="sub-menu none" id="a{3}">
-                    <dl>
-                        <dt>
-                            <a href="#">
-                                <span>二级菜单3-1</span>
-                                <i class="iconfont icon-qiehuanqiyou"></i>
-                            </a>
-                        </dt>
-                        <dd>
-                            <a href="#"> 三级菜单 </a>
-                            <a href="#"> 三级菜单 </a>
-                            <a href="#"> 三级菜单 </a>
-                            <a href="#"> 三级菜单 </a>
-                            <a href="#"> 三级菜单 </a>
-                        </dd>
-                    </dl>
-                    <dl>
-                        <dt>
-                            <a href="#">
-                                <span>二级菜单3-2</span>
-                                <i class="iconfont icon-qiehuanqiyou"></i>
-                            </a>
-                        </dt>
-                        <dd>
-                            <a href="#"> 三级菜单 </a>
-                            <a href="#"> 三级菜单 </a>
-                            <a href="#"> 三级菜单 </a>
-                            <a href="#"> 三级菜单 </a>
-                            <a href="#"> 三级菜单 </a>
-                        </dd>
-                    </dl>
-                </div>
-            </div>
-        </div> -->
-    </div>
+    <div id="J_testMenu"></div>
+
+    <script src="../../src/lib/js/jquery-3.3.1.min.js"></script>
+    <script src="../../src/lib/js/underscore-1.8.3.min.js"></script>
+    <script src="../../src/components/intelligentMenu/JMenu.js"></script>
+    <script src="../../src/lib/js/mock.min.js"></script>
+    <script src="../../src/data/mockData.js"></script>
+    <script>
+        var intelMenu = JMenu({
+            el: '#J_testMenu',
+            tree: [{
+                titles: [{
+                    name: '家用电器'
+                }],
+                children: [{
+                    name: '大型家电',
+                    children: [{
+                        name: '冰箱'
+                    }, {
+                        name: '冰箱'
+                    }, {
+                        name: '冰箱'
+                    }, {
+                        name: '冰箱'
+                    }, {
+                        name: '冰箱'
+                    }, {
+                        name: '冰箱'
+                    }, {
+                        name: '冰箱'
+                    }, {
+                        name: '冰箱'
+                    }, {
+                        name: '冰箱'
+                    }, {
+                        name: '冰箱'
+                    }, {
+                        name: '冰箱'
+                    }, {
+                        name: '冰箱'
+                    }, {
+                        name: '冰箱'
+                    }, {
+                        name: '洗衣机'
+                    }, {
+                        name: '洗衣机'
+                    }, {
+                        name: '洗衣机'
+                    }, {
+                        name: '洗衣机'
+                    }, {
+                        name: '洗衣机'
+                    }, {
+                        name: '洗衣机'
+                    }, {
+                        name: '洗衣机'
+                    }]
+                }, {
+                    name: '小型家电',
+                    children: [{
+                        name: '榨汁机'
+                    }, {
+                        name: '榨汁机'
+                    }, {
+                        name: '榨汁机'
+                    }, {
+                        name: '榨汁机'
+                    }, {
+                        name: '榨汁机'
+                    }, {
+                        name: '榨汁机'
+                    }, {
+                        name: '榨汁机'
+                    }, {
+                        name: '榨汁机'
+                    }, {
+                        name: '微波炉'
+                    }, {
+                        name: '微波炉'
+                    }, {
+                        name: '微波炉'
+                    }, {
+                        name: '微波炉'
+                    }, {
+                        name: '微波炉'
+                    }, {
+                        name: '微波炉'
+                    }, {
+                        name: '微波炉'
+                    }, {
+                        name: '微波炉'
+                    }, {
+                        name: '微波炉'
+                    }, {
+                        name: '微波炉'
+                    }, {
+                        name: '微波炉'
+                    }, {
+                        name: '微波炉'
+                    }, {
+                        name: '微波炉'
+                    }, {
+                        name: '微波炉'
+                    }, {
+                        name: '微波炉'
+                    }, {
+                        name: '微波炉'
+                    }]
+                }]
+            }, {
+                titles: [{
+                    name: '家用电器'
+                }],
+                children: [{
+                    name: '大型家电',
+                    children: [{
+                        name: '冰箱'
+                    }, {
+                        name: '冰箱'
+                    }, {
+                        name: '冰箱'
+                    }, {
+                        name: '冰箱'
+                    }, {
+                        name: '冰箱'
+                    }, {
+                        name: '冰箱'
+                    }, {
+                        name: '冰箱'
+                    }, {
+                        name: '冰箱'
+                    }, {
+                        name: '冰箱'
+                    }, {
+                        name: '冰箱'
+                    }, {
+                        name: '冰箱'
+                    }, {
+                        name: '冰箱'
+                    }, {
+                        name: '冰箱'
+                    }, {
+                        name: '洗衣机'
+                    }, {
+                        name: '洗衣机'
+                    }, {
+                        name: '洗衣机'
+                    }, {
+                        name: '洗衣机'
+                    }, {
+                        name: '洗衣机'
+                    }, {
+                        name: '洗衣机'
+                    }, {
+                        name: '洗衣机'
+                    }]
+                }, {
+                    name: '小型家电',
+                    children: [{
+                        name: '榨汁机'
+                    }, {
+                        name: '榨汁机'
+                    }, {
+                        name: '榨汁机'
+                    }, {
+                        name: '榨汁机'
+                    }, {
+                        name: '榨汁机'
+                    }, {
+                        name: '榨汁机'
+                    }, {
+                        name: '榨汁机'
+                    }, {
+                        name: '榨汁机'
+                    }, {
+                        name: '微波炉'
+                    }, {
+                        name: '微波炉'
+                    }, {
+                        name: '微波炉'
+                    }, {
+                        name: '微波炉'
+                    }, {
+                        name: '微波炉'
+                    }, {
+                        name: '微波炉'
+                    }, {
+                        name: '微波炉'
+                    }, {
+                        name: '微波炉'
+                    }, {
+                        name: '微波炉'
+                    }, {
+                        name: '微波炉'
+                    }, {
+                        name: '微波炉'
+                    }, {
+                        name: '微波炉'
+                    }, {
+                        name: '微波炉'
+                    }, {
+                        name: '微波炉'
+                    }, {
+                        name: '微波炉'
+                    }, {
+                        name: '微波炉'
+                    }]
+                }]
+            }, {
+                titles: [{
+                    name: '家用电器'
+                }],
+                children: [{
+                    name: '大型家电',
+                    children: [{
+                        name: '冰箱'
+                    }, {
+                        name: '冰箱'
+                    }, {
+                        name: '冰箱'
+                    }, {
+                        name: '冰箱'
+                    }, {
+                        name: '冰箱'
+                    }, {
+                        name: '冰箱'
+                    }, {
+                        name: '冰箱'
+                    }, {
+                        name: '冰箱'
+                    }, {
+                        name: '冰箱'
+                    }, {
+                        name: '冰箱'
+                    }, {
+                        name: '冰箱'
+                    }, {
+                        name: '冰箱'
+                    }, {
+                        name: '冰箱'
+                    }, {
+                        name: '洗衣机'
+                    }, {
+                        name: '洗衣机'
+                    }, {
+                        name: '洗衣机'
+                    }, {
+                        name: '洗衣机'
+                    }, {
+                        name: '洗衣机'
+                    }, {
+                        name: '洗衣机'
+                    }, {
+                        name: '洗衣机'
+                    }]
+                }, {
+                    name: '小型家电',
+                    children: [{
+                            name: '榨汁机'
+                        }, {
+                            name: '榨汁机'
+                        }, {
+                            name: '榨汁机'
+                        }, {
+                            name: '榨汁机'
+                        }, {
+                            name: '榨汁机'
+                        }, {
+                            name: '榨汁机'
+                        }, {
+                            name: '榨汁机'
+                        }, {
+                            name: '榨汁机'
+                        }, {
+                            name: '微波炉'
+                        }, {
+                            name: '微波炉'
+                        }, {
+                            name: '微波炉'
+                        }, {
+                            name: '微波炉'
+                        }, {
+                            name: '微波炉'
+                        }, {
+                            name: '微波炉'
+                        },
+                        {
+                            name: '微波炉'
+                        }, {
+                            name: '微波炉'
+                        }, {
+                            name: '微波炉'
+                        }, {
+                            name: '微波炉'
+                        }, {
+                            name: '微波炉'
+                        }, {
+                            name: '微波炉'
+                        }, {
+                            name: '微波炉'
+                        }, {
+                            name: '微波炉'
+                        },
+                        {
+                            name: '微波炉'
+                        }, {
+                            name: '微波炉'
+                        }
+                    ]
+                }]
+            }]
+        });
+    </script>
 </body>
 
 </html>
