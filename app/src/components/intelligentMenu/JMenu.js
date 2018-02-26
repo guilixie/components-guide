@@ -188,12 +188,39 @@
     bindEvent: function() {
       var mainMenu = $("#JMenu_" + this.uuid);
       var subMenu = $("#JMenu_sub_" + this.uuid);
-      var activeRow, activeMenu;
+      var activeRow; // 激活的一级菜单
+      var activeMenu; // 激活的二级菜单
+      var mouseRecords = []; // 记录鼠标位置
+      var isMouseInSub = false; // 鼠标是否在子菜单里
       var timer;
 
-      // 鼠标是否在子菜单里
-      var isMouseInSub = false;
+      var _active = function(target) {
+        activeRow = $(target);
+        activeRow.addClass("menu-active");
+        activeMenu = $("#" + activeRow.data("id"));
+        activeMenu.removeClass("none");
+      };
+
+      var _switchActive = function(target) {
+        activeRow.removeClass("menu-active");
+        activeMenu.addClass("none");
+        _active(target);
+      };
+
+      // 记录鼠标的位置
+      var _mouseMoveHandler = function(e) {
+        mouseRecords.push({
+          x: e.pageX,
+          y: e.pageY
+        });
+        mouseRecords.length > 3 && mouseRecords.shift(); // 只需要当前点和上一个点
+      };
+
+      // 子菜单位置
       subMenu
+        .css("left", mainMenu.children("ul").width())
+        .off("mouseenter")
+        .off("mouseleave")
         .on("mouseenter", function() {
           isMouseInSub = true;
         })
@@ -201,21 +228,12 @@
           isMouseInSub = false;
         });
 
-      // 记录鼠标的位置
-      var mouseTrack = [];
-      var moveHandler = function(e) {
-        mouseTrack.push({ x: e.pageX, y: e.pageY });
-
-        // 只需要当前点和上一个点
-        if (mouseTrack.length > 3) {
-          mouseTrack.shift();
-        }
-      };
-
       // 此处只能给整个菜单注册，而非只给一级菜单加，否则timer中的回调执行时，activeRow已为空
       mainMenu
+        .off("mouseenter")
+        .off("mouseleave")
         .on("mouseenter", function() {
-          $(document).bind("mousemove", moveHandler);
+          $(document).bind("mousemove", _mouseMoveHandler);
         })
         .on("mouseleave", function() {
           subMenu.addClass("none");
@@ -232,7 +250,7 @@
             clearTimeout(timer);
           }
 
-          $(document).unbind("mousemove", moveHandler); // 注意解绑，以免影响其他组件
+          $(document).unbind("mousemove", _mouseMoveHandler); // 注意解绑，以免影响其他组件
         })
         .on("mouseenter", "li", function(e) {
           subMenu.removeClass("none");
@@ -245,8 +263,8 @@
             clearTimeout(timer);
           }
 
-          var curMouse = mouseTrack[mouseTrack.length - 1]; // 鼠标当前坐标
-          var prevMouse = mouseTrack[mouseTrack.length - 2]; // 鼠标上一次坐标
+          var curMouse = mouseRecords[mouseRecords.length - 1]; // 鼠标当前坐标
+          var prevMouse = mouseRecords[mouseRecords.length - 2]; // 鼠标上次坐标
 
           var delay = UTILS.needDelay(subMenu, curMouse, prevMouse);
 
@@ -262,19 +280,6 @@
 
           _switchActive(e.target);
         });
-
-      function _active(target) {
-        activeRow = $(target);
-        activeRow.addClass("menu-active");
-        activeMenu = $("#" + activeRow.data("id"));
-        activeMenu.removeClass("none");
-      }
-
-      function _switchActive(target) {
-        activeRow.removeClass("menu-active");
-        activeMenu.addClass("none");
-        _active(target);
-      }
     }
   };
 
