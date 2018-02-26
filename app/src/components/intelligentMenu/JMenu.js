@@ -216,7 +216,6 @@
         mouseRecords.length > 3 && mouseRecords.shift(); // 只需要当前点和上一个点
       };
 
-      // 子菜单位置
       subMenu
         .css("left", mainMenu.children("ul").width())
         .off("mouseenter")
