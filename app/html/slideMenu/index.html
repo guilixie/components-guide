@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="../../src/components/slideMenu/slideMenu.css">
+    <style>
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+            padding: 0;
+            margin: 0;
+            background: #02131F;
+        }
+
+        .button-section {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+    </style>
+</head>
+
+<body>
+    <div id="test_left"></div>
+    <div id="test_right"></div>
+    <div id="test_top"></div>
+    <div id="test_bottom"></div>
+
+    <div class="button-section" id="J_btn_sec">
+        <button type="button" data-type="left" data-status="close">toggle左侧菜单</button>
+        <button type="button" data-type="right" data-status="close">toggle右侧菜单</button>
+        <button type="button" data-type="top" data-status="close">toggle头部菜单</button>
+        <button type="button" data-type="bottom" data-status="close">toggle底部菜单</button>
+    </div>
+
+    <script src="../../src/lib/js/jquery-3.3.1.min.js"></script>
+    <script src="../../src/lib/js/underscore-1.8.3.min.js"></script>
+    <script src="../../src/components/slideMenu/slideMenu.js"></script>
+
+    <script>
+        $(function () {
+            var btns = $('#J_btn_sec');
+            var menu_left = SlideMenu({
+                el: '#test_left',
+                pos: 'left',
+                menu: [{
+                    url: '#',
+                    img: '../../src/images/icon-thumb-country.png',
+                    title: '全国大屏'
+                }, {
+                    url: '#',
+                    img: '../../src/images/icon-thumb-city.png',
+                    title: '城市大屏'
+                }]
+            });
+            var menu_right = SlideMenu({
+                el: '#test_right',
+                pos: 'right',
+                menu: [{
+                    url: '#',
+                    img: '../../src/images/icon-thumb-country.png',
+                    title: '全国大屏'
+                }, {
+                    url: '#',
+                    img: '../../src/images/icon-thumb-city.png',
+                    title: '城市大屏'
+                }]
+            });
+            var menu_top = SlideMenu({
+                el: '#test_top',
+                pos: 'top',
+                menu: [{
+                    url: '#',
+                    img: '../../src/images/icon-thumb-country.png',
+                    title: '全国大屏'
+                }, {
+                    url: '#',
+                    img: '../../src/images/icon-thumb-city.png',
+                    title: '城市大屏'
+                }]
+            });
+            var menu_bottom = SlideMenu({
+                el: '#test_bottom',
+                pos: 'bottom',
+                menu: [{
+                    url: '#',
+                    img: '../../src/images/icon-thumb-country.png',
+                    title: '全国大屏'
+                }, {
+                    url: '#',
+                    img: '../../src/images/icon-thumb-city.png',
+                    title: '城市大屏'
+                }]
+            });
+
+            btns.on('click', function (ev) {
+                ev.stopPropagation();
+                var it = $(ev.target);
+                var type = it.data('type');
+                switch (type) {
+                    case 'left':
+                        toggle(menu_left, it);
+                        break;
+                    case 'right':
+                        toggle(menu_right, it);
+                        break;
+                    case 'top':
+                        toggle(menu_top, it);
+                        break;
+                    case 'bottom':
+                        toggle(menu_bottom, it);
+                        break;
+                    default:
+                        break;
+                }
+            });
+        });
+
+
+        function toggle(menu, btn) {
+            var status = btn.data('status');
+            if (status === 'close') {
+                btn.data('status', 'open');
+                menu.clickShow();
+            } else if (status === 'open') {
+                btn.data('status', 'close');
+                menu.clickHide();
+            }
+        }
+    </script>
+</body>
+
+</html>

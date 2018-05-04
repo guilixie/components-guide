@@ -1,0 +1,109 @@
+.guili-slide-menu {
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  position: fixed;
+  font-size: 18px;
+  background-color: rgba(6, 9, 41, 0.9);
+  z-index: 10;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all ease-in-out 0.4s;
+  -webkit-transition: all ease-in-out 0.4s;
+  -o-transition: all ease-in-out 0.4s;
+  -moz-transition: all ease-in-out 0.4s;
+}
+.pos-left,
+.pos-right,
+.pos-top,
+.pos-bottom {
+  opacity: 0;
+  filter: alpha(opacity=0);
+}
+.pos-left,
+.pos-right {
+  top: 0;
+  bottom: 0;
+  width: 0;
+  height: 100%;
+}
+.pos-top,
+.pos-bottom {
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 0;
+}
+.pos-left {
+  left: -240px;
+}
+.pos-right {
+  right: -240px;
+}
+.pos-top {
+  top: -120px;
+}
+.pos-bottom {
+  bottom: -120px;
+}
+.menu-active {
+  opacity: 1;
+  filter: alpha(opacity=100);
+}
+.pos-left.menu-active,
+.pos-right.menu-active {
+  width: 240px;
+}
+.pos-top.menu-active,
+.pos-bottom.menu-active {
+  height: 120px;
+}
+.pos-left.menu-active {
+  left: 0;
+}
+.pos-right.menu-active {
+  right: 0;
+}
+.pos-top.menu-active {
+  top: 0;
+}
+.pos-bottom.menu-active {
+  bottom: 0;
+}
+.guili-slide-menu-item {
+  margin: 5px;
+  padding: 5px;
+  position: relative;
+  color: #f5f5f5;
+  text-decoration: none;
+}
+.pos-left .guili-slide-menu-item,
+.pos-right .guili-slide-menu-item {
+  display: block;
+}
+.pos-top .guili-slide-menu-item,
+.pos-bottom .guili-slide-menu-item {
+  display: inline-block;
+  text-align: center;
+  margin-top: 8px;
+}
+.guili-slide-menu-item:hover,
+.guili-slide-menu-item:hover {
+  background-color: rgba(33, 166, 253, 0.5);
+}
+.guili-slide-menu-item:hover .guili-slide-menu-title,
+.guili-slide-menu-item:hover .guili-slide-menu-title {
+  text-decoration: underline;
+}
+.guili-slide-menu-thumb {
+  display: block;
+  width: 120px;
+  height: 70px;
+}
+.pos-left .guili-slide-menu-title,
+.pos-right .guili-slide-menu-title {
+  position: absolute;
+  top: 5px;
+  left: 130px;
+  display: inline-block;
+  line-height: 70px;
+}
