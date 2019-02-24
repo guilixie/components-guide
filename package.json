@@ -1,0 +1,31 @@
+{
+    "name": "components-guide",
+    "version": "1.0.0",
+    "description": "A guide about how to build components with jquery and underscore.",
+    "main": "",
+    "scripts": {
+        "dev": "gulp"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/guilixie/components-guide.git"
+    },
+    "keywords": [
+        "component",
+        "slideMenu",
+        "runningNumber",
+        "intelligentMenu",
+        "jquery",
+        "underscore"
+    ],
+    "author": "guilixie",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/guilixie/components-guide/issues"
+    },
+    "homepage": "https://github.com/guilixie/components-guide#readme",
+    "devDependencies": {
+        "gulp": "^4.0.0",
+        "gulp-webserver": "^0.9.1"
+    }
+}
